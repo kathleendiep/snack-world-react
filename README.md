@@ -10,9 +10,9 @@ A place to share different tastes of the world!
 # Functionality 
 
 # FEATURES
-## technologies used
-**React - frontend** 
-**Django - backend** 
+## TECHNOLOGIES USED
+- **React - frontend** 
+- **Django - backend** 
 
 
 
