@@ -49,7 +49,7 @@ class ClassySnacksContainer extends React.Component {
         // primitive data types gets values past
         e.preventDefault();
         // make sure it has the slash!! 
-        const apiResponse = await fetch(`https://localhost:8000/api/snacks/`,{
+        const apiResponse = await fetch(`http://localhost:8000/api/snacks/`,{
             method: "POST",
             body: JSON.stringify(this.state.newSnack),
             headers: {
@@ -71,7 +71,7 @@ class ClassySnacksContainer extends React.Component {
     async getSnacks() {
         // this comes from api > url.py > connect to backend 
         // make sure it has the slash!! 
-        const getSnacksApiResponse = await fetch("https://localhost:8000/api/snacks/")
+        const getSnacksApiResponse = await fetch("https://snacksworld-api.herokuapp.com/api/snacks/")
         const parsedSnacks = await getSnacksApiResponse.json();
         // set the State
         this.setState({
@@ -80,7 +80,7 @@ class ClassySnacksContainer extends React.Component {
     }
 
     deleteSnack = async (idToDelete) => {
-        const deleteResponse = await fetch(`https://localhost:8000/api/snacks/${idToDelete}`,{
+        const deleteResponse = await fetch(`https://snacksworld-api.herokuapp.com/api/snacks/${idToDelete}`,{
             method: "DELETE"
         })
         console.log(deleteResponse.status)
@@ -108,7 +108,7 @@ class ClassySnacksContainer extends React.Component {
     }
     updateSnack = async (idToUpdate) => {
          // get id from child and put it together
-         const apiResponse = await fetch(`https://localhost:8000/api/snacks/${idToUpdate}`,{
+         const apiResponse = await fetch(`http://localhost:8000/api/snacks/${idToUpdate}`,{
              method: "PUT",
              body: JSON.stringify(this.state.updateSnack),
              headers: {
