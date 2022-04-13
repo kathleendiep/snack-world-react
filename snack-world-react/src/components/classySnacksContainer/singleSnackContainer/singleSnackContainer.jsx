@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import UpdateSnack from './updateSnack/updateSnack'
-
 const SingleSnackContainer = (props) => {
     return(
         <div>
