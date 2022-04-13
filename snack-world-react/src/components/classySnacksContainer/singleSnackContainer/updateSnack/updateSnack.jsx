@@ -1,3 +1,4 @@
+import React from 'react'
 const UpdateSnack = (props) => {
     return (
         <div>
@@ -9,7 +10,7 @@ const UpdateSnack = (props) => {
                  - button to open it up, set snack to update 
                  - set a modal                 
                 */}
-                Name: <input onChange={props.handleUpdateSnackInputChange} name="name" type="text"></input>
+                Name: <input onChange={props.handleUpdateSnackInputChange} name="name" type="text" value={props.updateSnack.name}></input>
                 Category: <input onChange={props.handleUpdateSnackInputChange} name="category" type="text" id=""></input>
                 City: <input onChange={props.handleUpdateSnackInputChange} name="city" type="text"></input>
                 Country: <input onChange={props.handleUpdateSnackInputChange} name="country" type="text"></input>

@@ -49,7 +49,7 @@ class ClassySnacksContainer extends React.Component {
         // primitive data types gets values past
         e.preventDefault();
         // make sure it has the slash!! 
-        const apiResponse = await fetch(`http://localhost:8000/api/snacks/`,{
+        const apiResponse = await fetch(`https://snacksworld-api.herokuapp.com/api/snacks/`,{
             method: "POST",
             body: JSON.stringify(this.state.newSnack),
             headers: {
