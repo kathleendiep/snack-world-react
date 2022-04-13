@@ -13,6 +13,7 @@ const NavBar = () => {
        setShowing(!showing)
    }
     return(
+      // FIX THIS UP
       <>
         {
           // if showing is true - it will show the items
@@ -20,7 +21,7 @@ const NavBar = () => {
             ?
               <nav class="navbar navbar-default" role="navigation">
                 <div id="container">
-                   <h1 className="name-title"><Link to="/">Voyagers</Link></h1> 
+                   <h1 className="name-title"><Link to="/">Snack World</Link></h1> 
                     <nav id="hamburgerNav">
                       <button onClick={toggleShowing} class="fa fa-bars open" aria-hidden="true"><FontAwesomeIcon icon={faNavicon} /></button>
                     </nav>
@@ -40,7 +41,7 @@ const NavBar = () => {
             </nav>
             :
             <div id="container">
-                   <h1 className="name-title"><Link to="/">Voyagers</Link></h1> 
+                   <h1 className="name-title"><Link to="/">Snack World</Link></h1> 
                 <nav id="hamburgerNav">
                   <button onClick={toggleShowing} class="fa fa-bars open" aria-hidden="true"><FontAwesomeIcon icon={faNavicon} /></button>
                 </nav>
