@@ -16,5 +16,4 @@ const SingleSnackContainer = (props) => {
         </div> 
     )
 }
-
 export default SingleSnackContainer

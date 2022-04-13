@@ -13,7 +13,6 @@ const NewSnack = (props) => {
                 <br></br>
                 Country: <input onChange={props.handleNewSnackInputChange} name="country" type="text"></input>
                 Description: <input onChange={props.handleNewSnackInputChange} name="description" type="text"></input>
-                
                 <button type="submit">SUBMIT</button>
             </form>
         </div>
