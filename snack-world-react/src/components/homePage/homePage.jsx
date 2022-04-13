@@ -1,22 +1,19 @@
 import React from 'react'
 import { useState } from 'react'
-import VoyagerContainer from '../voyagerContainer/voyagerContainer';
+import SnacksContainer from '../snacksContainer/snacksContainer';
 import NavBar from '../navBar/navBar';
-import Footer from '../../footer/footer';
+import Footer from '../footer/footer'; 
 import { Link } from "react-router-dom";
 import './homePage.css'
 import 'animate.css';
 
 const HomePage = () => {
-  const [inputText, setInputText] = useState("");
-  let inputHandler = (e) => {
-    const lowerCase = e.target.value.toLowerCase(); 
-    setInputText(lowerCase);
-  }
-
-
+    const [inputText, setInputText] = useState("");
+    let inputHandler = (e) => {
+      const lowerCase = e.target.value.toLowerCase(); 
+      setInputText(lowerCase);
+    }
     return(
-  
           <div className="nav-bar">
             <NavBar></NavBar> 
               <section class="animate__animated animate__bounce">
@@ -27,7 +24,7 @@ const HomePage = () => {
                 <button className="button text-link"><Link to="/about">About</Link></button>
               </section>
             {/* assign the input to inputText */}
-            <VoyagerContainer input={inputText}></VoyagerContainer>
+            <SnacksContainer input={inputText}></SnacksContainer>
             <Footer></Footer>
           </div>
     )

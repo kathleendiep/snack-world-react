@@ -8,6 +8,7 @@ Nav Bar
     justify-content: space-between;
     flex-direction: row;
     column-gap: 80px;
+    height: 300px;
 }
 @media(min-width: 500px){
   #container{
@@ -15,6 +16,7 @@ Nav Bar
     justify-content: space-between;
     flex-direction: row;
     column-gap: 80px;
+    height: 300px;
 }
 }
 
