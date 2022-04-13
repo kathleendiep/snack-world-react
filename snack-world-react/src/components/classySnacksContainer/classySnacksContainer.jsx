@@ -140,6 +140,7 @@ class ClassySnacksContainer extends React.Component {
                 handleNewSnackInputChange={this.handleNewSnackInputChange}
                 createNewSnack={this.createNewSnack}
                 >
+                <hr></hr>
                 </NewSnack>
                 {/* add this.state this is object, belongs to parent*/}
                 {this.state.snacks.map((snack) => {
