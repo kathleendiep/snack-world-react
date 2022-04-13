@@ -10,11 +10,8 @@ const UpdateSnack = (props) => {
                  - set a modal                 
                 */}
                 Name: <input onChange={props.handleUpdateSnackInputChange} name="name" type="text"></input>
-                <br></br>
                 Category: <input onChange={props.handleUpdateSnackInputChange} name="category" type="text" id=""></input>
-                <br></br>
                 City: <input onChange={props.handleUpdateSnackInputChange} name="city" type="text"></input>
-                <br></br>
                 Country: <input onChange={props.handleUpdateSnackInputChange} name="country" type="text"></input>
                 Description: <input onChange={props.handleUpdateSnackInputChange} name="description" type="text"></input>
                 <button type="submit">SUBMIT</button>
