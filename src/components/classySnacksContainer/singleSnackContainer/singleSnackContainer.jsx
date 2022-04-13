@@ -12,7 +12,7 @@ const SingleSnackContainer = (props) => {
             <button onClick={()=>{props.deleteSnack(props.snack.id)}}> DELETE </button>
             {/* pass down props to the child */}
             <UpdateSnack snack={props.snack} handleUpdateSnackInputChange={props.handleUpdateSnackInputChange} updateSnack={props.updateSnack}></UpdateSnack>
-            {/* make sure to add ID to make it unique  */}
+            {/* make sure to add ID to make it unique */}
         </div> 
     )
 }
