@@ -9,6 +9,7 @@ const SingleSnackContainer = (props) => {
             <h3>{props.snack.city}</h3>
             <h3>{props.snack.country}</h3>
             <h3>{props.snack.description}</h3>
+            <h3>{props.snack.image}</h3>
             <button onClick={()=>{props.deleteSnack(props.snack.id)}}> DELETE </button>
             {/* pass down props to the child */}
             <UpdateSnack snack={props.snack} handleUpdateSnackInputChange={props.handleUpdateSnackInputChange} updateSnack={props.updateSnack}></UpdateSnack>
