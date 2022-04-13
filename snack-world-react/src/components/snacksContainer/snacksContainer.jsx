@@ -22,7 +22,6 @@ const SnacksContainer = (props) => {
         { snacks.map((snack)=>{
             return <SingleSnackContainer key={`snack-${snack.id}`} snack={snack} > {JSON.stringify(snacks)}</SingleSnackContainer>
         })}
- 
         <div class="outer-container">
           <div class="inner">
             <div class="box">
