@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import UpdateSnack from './updateSnack/updateSnack'
-import '../classySnacksContainer.scss'
+import '../classySnacksContainer/classySnacksContainer.scss'
 const SingleSnackContainer = (props) => {
     return(
         <div class="box">
