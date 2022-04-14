@@ -1,6 +1,7 @@
 import React from 'react'
 import SingleSnackContainer from './singleSnackContainer/singleSnackContainer'
 import NewSnack from './newSnack/newSnack'
+import './classySnacksContainer.scss'
 // extends = inherit
 // child class CLassySnackContainer extends from parent - React.Component
 class ClassySnacksContainer extends React.Component {
@@ -143,9 +144,13 @@ class ClassySnacksContainer extends React.Component {
                 <hr></hr>
                 </NewSnack>
                 {/* add this.state this is object, belongs to parent*/}
-                {this.state.snacks.map((snack) => {
-                    return <SingleSnackContainer key={`snack-${snack.id}`} snack={snack} deleteSnack={this.deleteSnack} updateSnack={this.updateSnack} handleUpdateSnackInputChange={this.handleUpdateSnackInputChange}> {JSON.stringify(this.snacks)}</SingleSnackContainer>
-                })}
+                <div class="outer-container">
+                    <div class="inner">
+                        {this.state.snacks.map((snack) => {
+                            return <SingleSnackContainer key={`snack-${snack.id}`} snack={snack} deleteSnack={this.deleteSnack} updateSnack={this.updateSnack} handleUpdateSnackInputChange={this.handleUpdateSnackInputChange}> {JSON.stringify(this.snacks)}</SingleSnackContainer>
+                        })}
+                    </div>
+                </div>
             </div>
         )
     }
