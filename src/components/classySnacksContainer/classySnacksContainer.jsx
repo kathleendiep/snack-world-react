@@ -1,7 +1,6 @@
 import React from 'react'
 import SingleSnackContainer from './singleSnackContainer/singleSnackContainer'
 import NewSnack from './newSnack/newSnack'
-import './classySnacksContainer.scss'
 // extends = inherit
 // child class CLassySnackContainer extends from parent - React.Component
 class ClassySnacksContainer extends React.Component {
