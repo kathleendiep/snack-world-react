@@ -1,6 +1,7 @@
 import React from 'react'
 import SingleSnackContainer from './singleSnackContainer/singleSnackContainer'
 import NewSnack from './newSnack/newSnack'
+import './classySnacksContainer.scss'
 // extends = inherit
 // child class CLassySnackContainer extends from parent - React.Component
 class ClassySnacksContainer extends React.Component {
@@ -13,18 +14,18 @@ class ClassySnacksContainer extends React.Component {
             snacks: [],
             newSnack: {
                 name: "",
-                category: "", 
+                category: "",
                 city: "",
                 country: "",
-                description:""
+                description: ""
                 // reminder: do not include id for forms
             },
             updateSnack: {
                 name: "",
-                category: "", 
+                category: "",
                 city: "",
                 country: "",
-                description:""
+                description: ""
                 // make sure to put ID
             }
         }
@@ -33,7 +34,7 @@ class ClassySnacksContainer extends React.Component {
         console.log("constructors")
     }
     // handle change for NEW snack - add this to the child input(newSnackComponent)
-    handleNewSnackInputChange =(e) => {
+    handleNewSnackInputChange = (e) => {
         console.log(this)
         console.log(e.target.value)
         this.setState({
@@ -49,21 +50,21 @@ class ClassySnacksContainer extends React.Component {
         // primitive data types gets values past
         e.preventDefault();
         // make sure it has the slash!! 
-        const apiResponse = await fetch(`http://localhost:8000/api/snacks/`,{
+        const apiResponse = await fetch(`http://localhost:8000/api/snacks/`, {
             method: "POST",
             body: JSON.stringify(this.state.newSnack),
             headers: {
                 'Content-Type': "application/json"
             }
         })
-        if(apiResponse.status == 201){
+        if (apiResponse.status == 201) {
             const creationResponseParsed = await apiResponse.json()
             console.log(creationResponseParsed)
             this.setState({
                 // use spread operator to list out snacks then return the one from database
                 snacks: [...this.state.snacks, this.state.snacks]
             })
-        } 
+        }
         // to do: ELSE
     }
     // fetch API METHOD
@@ -80,14 +81,14 @@ class ClassySnacksContainer extends React.Component {
     }
 
     deleteSnack = async (idToDelete) => {
-        const deleteResponse = await fetch(`https://snacksworld-api.herokuapp.com/api/snacks/${idToDelete}`,{
+        const deleteResponse = await fetch(`https://snacksworld-api.herokuapp.com/api/snacks/${idToDelete}`, {
             method: "DELETE"
         })
         console.log(deleteResponse.status)
-        if(deleteResponse.status == 204){
+        if (deleteResponse.status == 204) {
             this.setState({
                 // returns snacks only if it does not equal the idToDelete 
-                snacks: this.state.snacks.filter( s => s.id !== idToDelete)
+                snacks: this.state.snacks.filter(s => s.id !== idToDelete)
             })
         }
         const parsedDeleteResponse = await deleteResponse.json()
@@ -97,7 +98,7 @@ class ClassySnacksContainer extends React.Component {
     // STORE STATE IN PARENT
     // FORM IN CHILD
     // SEND ID TO UPDATE 
-    handleUpdateSnackInputChange =(e) => {
+    handleUpdateSnackInputChange = (e) => {
         console.log(e.target.value)
         this.setState({
             updateSnack: {
@@ -107,22 +108,22 @@ class ClassySnacksContainer extends React.Component {
         })
     }
     updateSnack = async (idToUpdate) => {
-         // get id from child and put it together
-         const apiResponse = await fetch(`http://localhost:8000/api/snacks/${idToUpdate}`,{
-             method: "PUT",
-             body: JSON.stringify(this.state.updateSnack),
-             headers: {
-                 "Content-Type": "application/json"
-             }
+        // get id from child and put it together
+        const apiResponse = await fetch(`http://localhost:8000/api/snacks/${idToUpdate}`, {
+            method: "PUT",
+            body: JSON.stringify(this.state.updateSnack),
+            headers: {
+                "Content-Type": "application/json"
+            }
         })
-        if(apiResponse.status == 200){
+        if (apiResponse.status == 200) {
             const parsedResponse = await apiResponse.json()
             this.setState({
                 // if its equal to idToUpdate, give me it, else give old response 
-                snacks: this.state.snacks.map( s => s.id === idToUpdate ? parsedResponse : s )
-            }) 
+                snacks: this.state.snacks.map(s => s.id === idToUpdate ? parsedResponse : s)
+            })
         }
-            console.log(apiResponse.status)
+        console.log(apiResponse.status)
     }
     // this gets called last - when component mounts - do this
     componentDidMount() {
@@ -137,15 +138,18 @@ class ClassySnacksContainer extends React.Component {
             <div>
                 <h1>Hello this is a classy container</h1>
                 <NewSnack
-                handleNewSnackInputChange={this.handleNewSnackInputChange}
-                createNewSnack={this.createNewSnack}
+                    handleNewSnackInputChange={this.handleNewSnackInputChange}
+                    createNewSnack={this.createNewSnack}
                 >
-                <hr></hr>
+                    <hr></hr>
                 </NewSnack>
-                {/* add this.state this is object, belongs to parent*/}
-                {this.state.snacks.map((snack) => {
-                    return <SingleSnackContainer key={`snack-${snack.id}`} snack={snack} deleteSnack={this.deleteSnack} updateSnack={this.updateSnack} handleUpdateSnackInputChange={this.handleUpdateSnackInputChange}> {JSON.stringify(this.snacks)}</SingleSnackContainer>
-                })}
+                <div class="outer-container">
+                    <div class="inner">
+                        {this.state.snacks.map((snack) => {
+                            return <SingleSnackContainer key={`snack-${snack.id}`} snack={snack} deleteSnack={this.deleteSnack} updateSnack={this.updateSnack} handleUpdateSnackInputChange={this.handleUpdateSnackInputChange}> {JSON.stringify(this.snacks)}</SingleSnackContainer>
+                        })}
+                    </div>
+                </div>
             </div>
         )
     }
