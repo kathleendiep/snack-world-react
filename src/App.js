@@ -11,7 +11,7 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import ClassySnacksContainer from './components/classySnacksContainer/classySnacksContainer';
 import HomePage from './components/homePage/homePage';
-import Footer from './components/footer/footer';
+
 function App() {
   return (
     <div className="App">
@@ -22,7 +22,6 @@ function App() {
           </Routes>
         </Router>
         <ClassySnacksContainer></ClassySnacksContainer>
-        <Footer></Footer>
     </div>
   )
 }

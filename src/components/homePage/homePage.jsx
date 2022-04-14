@@ -24,8 +24,8 @@ const HomePage = () => {
                 <button className="button text-link"><Link to="/about">About</Link></button>
               </section>
             {/* assign the input to inputText */}
-            {/* <SnacksContainer input={inputText}></SnacksContainer> */}
-            {/* <Footer></Footer> */}
+            <SnacksContainer input={inputText}></SnacksContainer>
+            <Footer></Footer>
           </div>
     )
 }

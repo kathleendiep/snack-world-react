@@ -1,8 +1,8 @@
-# Snacks World - React Front End 
+# Snack World - React Front End 
 ## Description
 A place to share different tastes of the world! 
 ## Check it out! 
-[link here](https://snack-world-react-front.herokuapp.com/home)
+[link here](https://example.com)
 
 ## DIRECTORY
 
@@ -24,8 +24,8 @@ code blocks for commands
 ## LEARNED
 Monday - connected backend to heroku
 Tuesday - implemented scss, class based components, CRUD
-Wednesday - stuck on heroku deploy for backend, tried to hide secret key as a dotenv. needed to add it to requirements.txt. Now it is showing a different database for localhost and heroku... how to merge both? 
-Thursday - fix up to do list, try MODAL, fix up update, add data, try new features..
+Wednesday - fix up to do list, try MODAL, fix up update, add data
+Thursday - try new features..
 Friday - API? 
 Weekend - style and css 
 ## Routing Table
