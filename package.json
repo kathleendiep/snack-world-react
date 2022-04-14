@@ -1,18 +1,10 @@
 {
-  "name": "snack-world-react",
+  "name": "snack-world-react-front-end",
   "version": "0.1.0",
-  "engines": {
-    "node": "16.x"
-  },
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.1.1",
-    "@fortawesome/free-brands-svg-icons": "^6.1.1",
-    "@fortawesome/free-regular-svg-icons": "^6.1.1",
-    "@fortawesome/free-solid-svg-icons": "^6.1.1",
-    "@fortawesome/react-fontawesome": "^0.1.18",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^12.1.4",
+    "@testing-library/react": "^13.0.1",
     "@testing-library/user-event": "^13.5.0",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.1.3",
@@ -20,8 +12,9 @@
     "react-bootstrap": "^2.2.3",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "^0.9.5",
-    "sass": "^1.50.0"
+    "react-scripts": "5.0.1",
+    "sass": "^1.50.0",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -47,11 +40,17 @@
       "last 1 safari version"
     ]
   },
+  "description": "A place to share different tastes of the world!  ## Check it out!  [link here](https://example.com)",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kathleendiep/snack-world-react.git"
+  },
   "author": "",
   "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    "web-vitals": "^2.1.4"
-  }
+  "bugs": {
+    "url": "https://github.com/kathleendiep/snack-world-react/issues"
+  },
+  "homepage": "https://github.com/kathleendiep/snack-world-react#readme",
+  "devDependencies": {}
 }

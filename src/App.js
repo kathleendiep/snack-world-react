@@ -1,28 +1,25 @@
-import React from 'react'
+import logo from './logo.svg';
 import './App.css';
-// importing components from react-router-dom packagewe are in v5
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
-// include this for bootstrap 
-import 'bootstrap/dist/css/bootstrap.min.css'; 
-import ClassySnacksContainer from './components/classySnacksContainer/classySnacksContainer';
-import HomePage from './components/homePage/homePage';
 
 function App() {
   return (
     <div className="App">
-        <Router>
-          <Routes>
-            <Route path="/home" element={<HomePage />} />
-            <Route path="/" element={<Navigate replace to="/home" />} />
-          </Routes>
-        </Router>
-        <ClassySnacksContainer></ClassySnacksContainer>
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
-  )
+  );
 }
-export default App
+
+export default App;
