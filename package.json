@@ -1,8 +1,13 @@
 {
-  "name": "snack-world-react-front-end",
+  "name": "snacksworld-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-brands-svg-icons": "^6.1.1",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.0.1",
     "@testing-library/user-event": "^13.5.0",
@@ -40,17 +45,8 @@
       "last 1 safari version"
     ]
   },
-  "description": "A place to share different tastes of the world!  ## Check it out!  [link here](https://example.com)",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kathleendiep/snack-world-react.git"
-  },
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kathleendiep/snack-world-react/issues"
-  },
-  "homepage": "https://github.com/kathleendiep/snack-world-react#readme",
-  "devDependencies": {}
+  "license": "ISC"
 }
