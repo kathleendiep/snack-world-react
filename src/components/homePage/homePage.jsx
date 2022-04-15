@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
-import SnacksContainer from '../snacksContainer/snacksContainer';
 import NavBar from '../navBar/navBar';
+import ClassySnacksContainer from '../classySnacksContainer/classySnacksContainer';
 import SearchBar from '../searchBar/searchBar'
 import Footer from '../footer/footer';
 import { Link } from "react-router-dom";
@@ -26,7 +26,7 @@ const HomePage = () => {
       </section>
       <SearchBar></SearchBar>
       {/* assign the input to inputText */}
-      <SnacksContainer input={inputText}></SnacksContainer>
+      <ClassySnacksContainer input={inputText}></ClassySnacksContainer>
       <Footer></Footer>
     </div>
   )

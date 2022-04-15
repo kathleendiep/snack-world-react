@@ -13,7 +13,7 @@ const SingleSnackContainer = (props) => {
             <h3>{props.snack.description}</h3>
             <button onClick={()=>{props.deleteSnack(props.snack.id)}}> DELETE </button>
             {/* make sure to add ID to make it unique  */}
-  
+
         </div> 
     )
 }
