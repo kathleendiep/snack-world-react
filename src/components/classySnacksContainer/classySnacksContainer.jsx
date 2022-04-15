@@ -161,6 +161,7 @@ class ClassySnacksContainer extends React.Component {
                             snack={snack}
                             deleteSnack={this.deleteSnack}
                             updateSnack={this.updateSnack}
+                            snacks={this.state.snacks}
                             >
                                 {JSON.stringify(this.snacks)}
                             </SingleSnackContainer>
