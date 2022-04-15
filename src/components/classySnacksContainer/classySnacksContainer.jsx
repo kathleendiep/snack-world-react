@@ -1,6 +1,8 @@
 import React from 'react'
 import SingleSnackContainer from './singleSnackContainer/singleSnackContainer'
 import NewSnack from './newSnack/newSnack'
+import './classySnacksContainer.scss'
+import { Navigate } from 'react-router-dom'
 // extends = inherit
 // child class CLassySnackContainer extends from parent - React.Component
 class ClassySnacksContainer extends React.Component {
@@ -16,17 +18,20 @@ class ClassySnacksContainer extends React.Component {
                 category: "",
                 city: "",
                 country: "",
-                description: ""
+                description: "",
+                image: ""
                 // reminder: do not include id for forms
-            },
-            updateSnack: {
-                name: "",
-                category: "",
-                city: "",
-                country: "",
-                description: ""
-                // make sure to put ID
             }
+            // // should change update in state to now be that one 
+            // updateSnack: {
+            //     name: "",
+            //     category: "",
+            //     city: "",
+            //     country: "",
+            //     description: "",
+            //     image:"" 
+            //     // make sure to put ID?
+            // }
         }
         // // event handler - component is "this"
         // this.handleClick = this.handleClick.bind(this);
@@ -34,7 +39,6 @@ class ClassySnacksContainer extends React.Component {
     }
     // handle change for NEW snack - add this to the child input(newSnackComponent)
     handleNewSnackInputChange = (e) => {
-        console.log(this)
         console.log(e.target.value)
         this.setState({
             newSnack: {
@@ -49,7 +53,7 @@ class ClassySnacksContainer extends React.Component {
         // primitive data types gets values past
         e.preventDefault();
         // make sure it has the slash!! 
-        const apiResponse = await fetch(`http://localhost:8000/api/snacks/`, {
+        const apiResponse = await fetch(`https://snacksworld-api.herokuapp.com/api/snacks/`, {
             method: "POST",
             body: JSON.stringify(this.state.newSnack),
             headers: {
@@ -58,11 +62,14 @@ class ClassySnacksContainer extends React.Component {
         })
         if (apiResponse.status == 201) {
             const creationResponseParsed = await apiResponse.json()
-            console.log(creationResponseParsed)
+            // console.log(creationResponseParsed)
             this.setState({
                 // use spread operator to list out snacks then return the one from database
                 snacks: [...this.state.snacks, this.state.snacks]
             })
+            return < Navigate to="/" />; 
+
+            
         }
         // to do: ELSE
     }
@@ -97,33 +104,37 @@ class ClassySnacksContainer extends React.Component {
     // STORE STATE IN PARENT
     // FORM IN CHILD
     // SEND ID TO UPDATE 
-    handleUpdateSnackInputChange = (e) => {
-        console.log(e.target.value)
-        this.setState({
-            updateSnack: {
-                ...this.state.updateSnack,
-                [e.target.name]: e.target.value
-            }
-        })
-    }
-    updateSnack = async (idToUpdate) => {
-        // get id from child and put it together
-        const apiResponse = await fetch(`http://localhost:8000/api/snacks/${idToUpdate}`, {
-            method: "PUT",
-            body: JSON.stringify(this.state.updateSnack),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-        if (apiResponse.status == 200) {
-            const parsedResponse = await apiResponse.json()
-            this.setState({
-                // if its equal to idToUpdate, give me it, else give old response 
-                snacks: this.state.snacks.map(s => s.id === idToUpdate ? parsedResponse : s)
-            })
-        }
-        console.log(apiResponse.status)
-    }
+    // PUT THIS IN SINGLESNACKS first
+    // handleUpdateSnackInputChange = (e) => {
+    //     console.log(e.target.value)
+    //     this.setState({
+    //         updateSnack: {
+    //             ...this.state.updateSnack,
+    //             [e.target.name]: e.target.value
+    //         }
+    //     })
+    // }
+
+    // // should i do an setUpdateSnack
+    // updateSnack = async (idToUpdate) => {
+    //     console.log(this.state.updateSnack)
+    //     // get id from child and put it together
+    //     const apiResponse = await fetch(`https://snacksworld-api.herokuapp.com/api/snacks/${idToUpdate}`, {
+    //         method: "PUT",
+    //         body: JSON.stringify(this.state.updateSnack),
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         }
+    //     })
+    //     if (apiResponse.status == 200) {
+    //         const parsedResponse = await apiResponse.json()
+    //         this.setState({
+    //             // if its equal to idToUpdate, give me it, else give old response 
+    //             snacks: this.state.snacks.map(s => s.id === idToUpdate ? parsedResponse : s)
+    //         })
+    //     }
+    //     console.log(apiResponse.status)
+    // }
     // this gets called last - when component mounts - do this
     componentDidMount() {
         // refer to object holding method 
@@ -145,7 +156,14 @@ class ClassySnacksContainer extends React.Component {
                 <div class="outer-container">
                     <div class="inner">
                         {this.state.snacks.map((snack) => {
-                            return <SingleSnackContainer key={`snack-${snack.id}`} snack={snack} deleteSnack={this.deleteSnack} updateSnack={this.updateSnack} handleUpdateSnackInputChange={this.handleUpdateSnackInputChange}> {JSON.stringify(this.snacks)}</SingleSnackContainer>
+                            return <SingleSnackContainer 
+                            key={`snack-${snack.id}`}
+                            snack={snack}
+                            deleteSnack={this.deleteSnack}
+                            updateSnack={this.updateSnack}
+                            >
+                                {JSON.stringify(this.snacks)}
+                            </SingleSnackContainer>
                         })}
                     </div>
                 </div>
