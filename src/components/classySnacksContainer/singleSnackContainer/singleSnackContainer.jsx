@@ -50,7 +50,6 @@ class SingleSnackContainer extends React.Component {
         }
         console.log(apiResponse.status)
     }
-
     render() {
         return (
             <div className="single-item-component">

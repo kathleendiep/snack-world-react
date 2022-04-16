@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,900');
+@import url('https://use.fontawesome.com/releases/v5.8.1/css/all.css');
+@mixin center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+body {
+  min-height: 100vh;
+  background-color: #efefef;
+  font-family: "lato", sans-serif;
+  overflow-X: hidden;
+}
+.new-snack{
+  margin: 100px;
+}
+
+// SINGLE SNACK
+.product-image img{
+  width: auto;
+  height: auto;
+  max-height: 300px;
+  max-width: 300px;
+}
+.outer-container{
+  margin-top: 100px;
+  width: 100%;
+  background-image: linear-gradient(to right, rgba(255, 75, 31, .7), rgba(255,144,104, 0.7));
+  transform: skewY(-5deg);  
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  column-gap: 80px;
+  min-height: 90vh;
+    & > * {
+    transform: skewY(5deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding: 10px;
+}
+
+.box:not(:last-child) {
+  margin-right: 2rem;
+}
