@@ -146,7 +146,6 @@ class ClassySnacksContainer extends React.Component {
         console.log("rendering")
         return (
             <div>
-                <h1>Hello this is a classy container</h1>
                 <NewSnack
                     handleNewSnackInputChange={this.handleNewSnackInputChange}
                     createNewSnack={this.createNewSnack}

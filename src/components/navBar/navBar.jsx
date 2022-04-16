@@ -22,9 +22,9 @@ const NavBar = () => {
         <i class="fa fa-bars fa-3x"></i>
         <div class="header-links">
           <ul>
-            <li data-menuanchor="fourthPage"><a href="#contact">CONTACT</a></li>
-            <li data-menuanchor="thirdPage"><a href="#portfolio">PORTFOLIO</a></li>
-            <li data-menuanchor="secondPage"><a href="#about">ABOUT</a></li>
+            <li data-menuanchor="fourthPage"><Link to="/">Home</Link></li>
+            <li data-menuanchor="thirdPage"><Link to="/about">About</Link></li>
+            <li data-menuanchor="secondPage"><Link to="/viewall">Snacks</Link></li>
           </ul>
         </div>
       </div>

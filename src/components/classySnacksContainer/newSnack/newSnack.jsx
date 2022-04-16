@@ -2,36 +2,80 @@ import React from 'react'
 import { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
-import Button from  'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button'
 import { Redirect } from 'react-router-dom'
+
 const NewSnack = (props) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [showing, setShowing] = useState(false)
+    const [isValidState, setIsValidState] = useState({valid: true, message: ""})
     // 1. function that setShowing function as TRUE! = !true when clicked on 
     const toggleShowing = () => {
-    // 2. set variable to the opposite
+        // 2. set variable to the opposite
         setShowing(!showing)
     }
-    return(
+    return (
         // make a modal 
-        <div>
-            <h5>Create new snack!</h5>
-            <form onSubmit={props.createNewSnack}>
-                Name: <input onChange={props.handleNewSnackInputChange} name="name" type="text"></input>
-                <br></br>
-                Category: <input onChange={props.handleNewSnackInputChange} name="category" type="text" id=""></input>
-                <br></br>
-                City: <input onChange={props.handleNewSnackInputChange} name="city" type="text"></input>
-                <br></br>
-                Country: <input onChange={props.handleNewSnackInputChange} name="country" type="text"></input>
-                Description: <input onChange={props.handleNewSnackInputChange} name="description" type="text"></input>
-                Image: <input onChange={props.handleNewSnackInputChange} name="image" type="text"></input>
-                <button type="submit">SUBMIT</button>
-            </form>
-        </div>
+        <>
+            <Button variant="primary" onClick={handleShow} className="custom-btn">
+                Create!
+            </Button>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Add a new Snack!</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    {/* this will make the showing set from true to false and close out the div */}
+                    {/* create the onSubmit form */}
+                    <Form onSubmit={props.createNewSnack}>
+                        {/* if isValidState.valid return null, else - show an error  */}
+                        {isValidState.valid ? null : <p className="form-error">{isValidState.message}</p>}
+                        {/* if there is a server error then show there is an error */}
+                        {props.newItemServerError ? <p className="form-error">{props.newItemsServerError}</p> : null}
+                        {/* onChange listens to whats in here based on function - put this on both*/}
+                        {/* name needs to be same as model schema */}
+                        {/* data binding - backend and front end sync */}
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Name:</Form.Label>
+                            <Form.Control onChange={props.handleNewSnackInputChange} name="name" type="text"/>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Category:</Form.Label>
+                            <Form.Control onChange={props.handleNewSnackInputChange} name="category" type="text" id=""/>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>City:</Form.Label>
+                            <Form.Control onChange={props.handleNewSnackInputChange} name="category" type="text" id=""/>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Country:</Form.Label>
+                            <Form.Control onChange={props.handleNewSnackInputChange} name="country" type="text"/>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Description:</Form.Label>
+                            <Form.Control onChange={props.handleNewSnackInputChange} name="description" type="text"/>
+                        </Form.Group>
+                         <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Image:</Form.Label>
+                            <Form.Control onChange={props.handleNewSnackInputChange} name="image" type="text"/>
+                        </Form.Group>
+                        {/* <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Image:</Form.Label>
+                            <Form.Control onChange={props.handleNewSnackInputChange} name="image" type="file"/>
+                        </Form.Group> */}
+                        <Button type="submit">
+                            Submit
+                        </Button>
+                    </Form>
+                </Modal.Body>
+            </Modal>
+        </>
+
     )
 }
 
 export default NewSnack
+
+
