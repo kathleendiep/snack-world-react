@@ -1,7 +1,7 @@
-import { useState } from 'react'
 import React from 'react'
 import UpdateSnack from './updateSnack/updateSnack'
 import './singleSnackContainer.scss'
+
 class SingleSnackContainer extends React.Component {
     // get snack from parent, then pass down updated snack to child
     // set snack update 

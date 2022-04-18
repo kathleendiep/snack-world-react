@@ -20,7 +20,7 @@ const HomePage = () => {
       <section class="animate__animated animate__bounce">
         <div class="column text">
           <h2 class="animate__animated animate__bounce">Snack World</h2>
-          <p>Taste the world! </p>
+          <p>Explore the world with different snacks! </p>
         </div>
         <button className="button text-link"><Link to="/about">About</Link></button>
       </section>

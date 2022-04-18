@@ -19,7 +19,10 @@ const NewSnack = (props) => {
     return (
         // make a modal 
         <>
-            <Button variant="primary" onClick={handleShow} className="custom-btn">
+            <div class="section-head col-sm-12">
+                <h4><span>Add a snack!</span></h4>
+            </div>
+            <Button variant="primary" onClick={handleShow} className="button">
                 Create!
             </Button>
             <Modal show={show} onHide={handleClose}>

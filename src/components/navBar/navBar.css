@@ -15,6 +15,7 @@ ul {
 
 a {
   text-decoration: none !important;
+  color: white;
 }
 .nav-screen {
   height: 100%;
@@ -76,17 +77,20 @@ a {
   display: inline;
   float: right;
   padding: 15px;
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .header-links a {
-  color: #757575;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
+  color: white;
+  background-image: linear-gradient(to right, rgba(255, 75, 31, .7), rgba(255,144,104, 0.7));
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  background-position-x: right;
+  transition: background-size 500ms; 
 }
 
 .header-links a:hover {
-  color: #52d3aa;
-  outline: none;
+  background-size: 100% 100%; 
+  background-position-x: left;
 }

@@ -2,7 +2,12 @@ import React from 'react'
 import SingleSnackContainer from './singleSnackContainer/singleSnackContainer'
 import NewSnack from './newSnack/newSnack'
 import './classySnacksContainer.scss'
-import { Navigate } from 'react-router-dom'
+import { Navigate, Link } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+
+
 // extends = inherit
 // child class CLassySnackContainer extends from parent - React.Component
 class ClassySnacksContainer extends React.Component {
@@ -143,7 +148,24 @@ class ClassySnacksContainer extends React.Component {
     }
     // must have render() and define render - this is what will render component
     render() {
-        console.log("rendering")
+        console.log("Rendering");
+        const responsive = {
+          desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 3,
+            slidesToSlide: 3 // optional, default to 1.
+          },
+          tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2,
+            slidesToSlide: 2 // optional, default to 1.
+          },
+          mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1,
+            slidesToSlide: 1 // optional, default to 1.
+          }
+        };
         return (
             <div>
                 <NewSnack
@@ -152,10 +174,22 @@ class ClassySnacksContainer extends React.Component {
                 >
                     <hr></hr>
                 </NewSnack>
-                <div class="outer-container">
-                    <div class="inner">
-                        {this.state.snacks.map((snack) => {
-                            return <SingleSnackContainer 
+ 
+                <Carousel className= "outer-container"
+          /*
+          swipeable={false}
+          draggable={false}
+          */
+          responsive={responsive}
+          ssr
+          showDots
+          containerClass="container-with-dots"
+          itemClass="image-item"
+          deviceType={this.props.deviceType}
+        >
+       {this.state.snacks.map((snack) => {
+                            return <SingleSnackContainer
+                            className = {this.props.inner}
                             key={`snack-${snack.id}`}
                             snack={snack}
                             deleteSnack={this.deleteSnack}
@@ -165,8 +199,12 @@ class ClassySnacksContainer extends React.Component {
                                 {JSON.stringify(this.snacks)}
                             </SingleSnackContainer>
                         })}
-                    </div>
-                </div>
+        </Carousel>
+   
+                
+             <Button variant="primary" className="button see-more">
+                 <Link to="/viewall">See more! </Link>
+            </Button>
             </div>
         )
     }
@@ -174,3 +212,4 @@ class ClassySnacksContainer extends React.Component {
 
 // still need to add this 
 export default ClassySnacksContainer
+

@@ -14,7 +14,24 @@ body {
 .new-snack{
   margin: 100px;
 }
-
+.see-more{
+  margin-top: 5vh;
+  margin-bottom: 2vh; 
+}
+.view-all-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.collection{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: row;
+}
 // SINGLE SNACK
 .product-image img{
   width: auto;
@@ -23,7 +40,7 @@ body {
   max-width: 300px;
 }
 .outer-container{
-  margin-top: 100px;
+  margin-top: 50px;
   width: 100%;
   background-image: linear-gradient(to right, rgba(255, 75, 31, .7), rgba(255,144,104, 0.7));
   transform: skewY(-5deg);  
@@ -31,7 +48,7 @@ body {
   justify-content: space-between;
   flex-direction: row;
   column-gap: 80px;
-  min-height: 90vh;
+  min-height: 50vh;
     & > * {
     transform: skewY(5deg);
     display: flex;
