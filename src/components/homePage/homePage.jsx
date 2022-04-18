@@ -17,9 +17,9 @@ const HomePage = () => {
   return (
     <div className="nav-bar">
       <NavBar></NavBar>
-      <section class="animate__animated animate__bounce">
+      <section class="animate__animated animate__fadeInDown ">
         <div class="column text">
-          <h2 class="animate__animated animate__bounce">Snack World</h2>
+          <h2 class="animate__animated animate__bounce animate__delay-.5s">Snack World</h2>
           <p>Explore the world with different snacks! </p>
         </div>
         <button className="button text-link"><Link to="/about">About</Link></button>

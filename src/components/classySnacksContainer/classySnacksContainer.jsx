@@ -72,9 +72,7 @@ class ClassySnacksContainer extends React.Component {
                 // use spread operator to list out snacks then return the one from database
                 snacks: [...this.state.snacks, this.state.snacks]
             })
-            return < Navigate to="/" />; 
-
-            
+            return < Navigate to="/" />;             
         }
         // to do: ELSE
     }
@@ -167,7 +165,7 @@ class ClassySnacksContainer extends React.Component {
           }
         };
         return (
-            <div>
+            <div className ="animate__animated animate__fadeInRight animate__delay-1s">
                 <NewSnack
                     handleNewSnackInputChange={this.handleNewSnackInputChange}
                     createNewSnack={this.createNewSnack}
@@ -175,7 +173,9 @@ class ClassySnacksContainer extends React.Component {
                     <hr></hr>
                 </NewSnack>
  
-                <Carousel className= "outer-container"
+                <Carousel 
+
+        className= " outer-container"
           /*
           swipeable={false}
           draggable={false}
