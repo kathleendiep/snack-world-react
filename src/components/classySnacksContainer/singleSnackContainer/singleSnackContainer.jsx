@@ -66,8 +66,8 @@ class SingleSnackContainer extends React.Component {
                                 <span></span>
                                 <span></span>
                             </div>
-                            <h2>{this.props.snack.name}</h2>
-                            <h3 className="card-title">{this.props.snack.category}</h3>
+                            <h2 className="card-title">{this.props.snack.name}</h2>
+                            <h3 >{this.props.snack.category}</h3>
                             <li className="card-jobtitle">{this.props.snack.country}</li>
                             <div class="card-content">
                                 <div class="card-subtitle">ABOUT</div>
