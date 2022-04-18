@@ -21,6 +21,7 @@ const NewSnack = (props) => {
         <>
             <div class="section-head col-sm-12">
                 <h4><span>Add a snack!</span></h4>
+
             </div>
             <Button variant="primary" onClick={handleShow} className="button">
                 Create!
@@ -48,6 +49,15 @@ const NewSnack = (props) => {
                             <Form.Label>Category:</Form.Label>
                             <Form.Control onChange={props.handleNewSnackInputChange} name="category" type="text" id=""/>
                         </Form.Group>
+                        {/* <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Category:</Form.Label>
+                            <Form.Select onChange={props.handleNewSnackInputChange} name="category" type="text" id="">
+                            <option>Open this select menu</option>
+  <option value="1">One</option>
+  <option value="2">Two</option>
+  <option value="3">Three</option>
+  </Form.Select>
+                        </Form.Group> */}
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>City:</Form.Label>
                             <Form.Control onChange={props.handleNewSnackInputChange} name="category" type="text" id=""/>
