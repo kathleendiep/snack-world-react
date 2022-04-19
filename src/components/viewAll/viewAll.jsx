@@ -37,7 +37,7 @@ class ViewAll extends React.Component {
             </section>
           </div> 
 <ClassySnacksContainer/>
-        <Footer></Footer>
+
       </>
 
     )

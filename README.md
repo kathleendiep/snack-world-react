@@ -3,7 +3,7 @@
 A place to share different tastes of the world! 
 - Show snacks by category and location 
 ## Check it out! 
-[link here](https://example.com)
+[link here](https://snack-world-react-front.herokuapp.com/home)
 
 
 ## TECHNOLOGIES USED
