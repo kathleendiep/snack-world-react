@@ -72,7 +72,9 @@ class ClassySnacksContainer extends React.Component {
                 // use spread operator to list out snacks then return the one from database
                 snacks: [...this.state.snacks, this.state.snacks]
             })
-            return < Navigate to="/" />;             
+            return < Navigate to="/" />; 
+
+
         }
         // to do: ELSE
     }
