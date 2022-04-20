@@ -17,6 +17,7 @@ const NewSnack = (props) => {
         setShowing(!showing)
     }
     return (
+
         <>
             <div class="section-head col-sm-12">
                 <h4><span>Add a snack!</span></h4>

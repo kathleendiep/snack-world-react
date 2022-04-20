@@ -73,8 +73,6 @@ class ClassySnacksContainer extends React.Component {
                 snacks: [...this.state.snacks, this.state.snacks]
             })
             return < Navigate to="/" />; 
-
-
         }
         // to do: ELSE
     }
