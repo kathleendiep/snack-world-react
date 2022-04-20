@@ -6,7 +6,7 @@ import SearchBar from '../searchBar/searchBar'
 import Footer from '../footer/footer';
 import MainBanner from './mainBanner'
 import { Link } from "react-router-dom";
-import './homePage.css'
+import './homePage.scss'
 import 'animate.css';
 
 const HomePage = () => {
@@ -26,7 +26,6 @@ const HomePage = () => {
     </div>
   )
 }
-
 export default HomePage
 
 
