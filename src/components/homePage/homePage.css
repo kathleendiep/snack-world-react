@@ -25,9 +25,7 @@ section{
     font-size: 2.8em;
     font-weight: 400;
     font-family: 'Bangers', cursive;
-    background:
-          linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-      
+    background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
