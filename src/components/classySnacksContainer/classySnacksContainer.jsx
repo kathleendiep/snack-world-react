@@ -2,7 +2,7 @@ import React from 'react'
 import SingleSnackContainer from './singleSnackContainer/singleSnackContainer'
 import NewSnack from './newSnack/newSnack'
 import './classySnacksContainer.scss'
-import { Navigate, Link } from 'react-router-dom'
+import { Navigate, Link, useNavigate} from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -52,6 +52,8 @@ class ClassySnacksContainer extends React.Component {
             }
         })
     }
+
+  
     createNewSnack = async (e) => {
         // value vs reference
         // react - make COPY through ...spread operater, passed by reference when they're objects and arrays
@@ -72,7 +74,8 @@ class ClassySnacksContainer extends React.Component {
                 // use spread operator to list out snacks then return the one from database
                 snacks: [...this.state.snacks, this.state.snacks]
             })
-            return < Navigate to="/" />; 
+            // return <Navigate to='/'  />
+            useNavigate({ pathname: '/' }, { replace: true })
         }
         // to do: ELSE
     }
@@ -164,6 +167,19 @@ class ClassySnacksContainer extends React.Component {
             slidesToSlide: 1 // optional, default to 1.
           }
         };
+        function HomeButton() {
+            let history = useNavigate()
+          
+            function handleClick() {
+              history.push("/home")
+            }
+          
+            return (
+              <button type="button" onClick={handleClick}>
+                Go home
+              </button>
+            )
+          }
         return (
             <div className ="animate__animated animate__fadeInRight animate__delay-1s">
                 <NewSnack
