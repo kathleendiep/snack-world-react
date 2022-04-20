@@ -17,7 +17,6 @@ const NewSnack = (props) => {
         setShowing(!showing)
     }
     return (
-        // make a modal 
         <>
             <div class="section-head col-sm-12">
                 <h4><span>Add a snack!</span></h4>
@@ -49,18 +48,9 @@ const NewSnack = (props) => {
                             <Form.Label>Category:</Form.Label>
                             <Form.Control onChange={props.handleNewSnackInputChange} name="category" type="text" id=""/>
                         </Form.Group>
-                        {/* <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Category:</Form.Label>
-                            <Form.Select onChange={props.handleNewSnackInputChange} name="category" type="text" id="">
-                            <option>Open this select menu</option>
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-  </Form.Select>
-                        </Form.Group> */}
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>City:</Form.Label>
-                            <Form.Control onChange={props.handleNewSnackInputChange} name="category" type="text" id=""/>
+                            <Form.Control onChange={props.handleNewSnackInputChange} name="city" type="text" id=""/>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Country:</Form.Label>
@@ -74,10 +64,6 @@ const NewSnack = (props) => {
                             <Form.Label>Image:</Form.Label>
                             <Form.Control onChange={props.handleNewSnackInputChange} name="image" type="text"/>
                         </Form.Group>
-                        {/* <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Image:</Form.Label>
-                            <Form.Control onChange={props.handleNewSnackInputChange} name="image" type="file"/>
-                        </Form.Group> */}
                         <Button type="submit">
                             Submit
                         </Button>
@@ -85,7 +71,6 @@ const NewSnack = (props) => {
                 </Modal.Body>
             </Modal>
         </>
-
     )
 }
 
