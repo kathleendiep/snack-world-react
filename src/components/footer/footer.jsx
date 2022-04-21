@@ -14,8 +14,7 @@ const Footer = () => {
                 <li class="whatsapp"><a href="https://github.com/kathleendiep"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a></li>
                 <li class="whatsapp"><a href="https://www.kathleendiep.com"><i class="fa fa-laptop fa-2x" aria-hidden="true"></i></a></li>
             </ul>
-            </div>
-            <div className='wrapper'> &copy;2022 Kathleen Diep | All Rights Reserved
+             &copy;2022 Kathleen Diep | All Rights Reserved
             </div>
         </footer> 
     )

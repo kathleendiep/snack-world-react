@@ -3,12 +3,11 @@ footer {
     display: flex;
     width: 400px;
     margin: auto;
-    // margin: 40vh auto;
     text-align: center;
     background-color: #80D0C7;    
     opacity: 0.80;
     margin-bottom: 0;
-    height: 20vh;
+    height: 30vh;
     width: 100%;
     text-align: center;
     padding: 5px 0 2px;
@@ -19,32 +18,40 @@ footer {
     footer a  {
     color: #fff;
   }
+  // phone
   /* Style the Un-order list by setting its list-style to none */
   .wrapper ul {
     list-style: none;
+    width: 90vw;
+  }
+  .wrapper {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;;
+    align-items: center;
+    justify-content: center;
+  }
+  .wrapper ul li {
+    width: 12vw;
+    height: 8vh;
+    line-height: 75px;
+    margin: 0 10px;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+    transition: all 0.5s ease;
   }
 
   /* Style the list items inside the UL list, by setting its width, height and line-height 
     and float them to left and set its border and border-radius.
    */
-  .wrapper ul li {
-    width: 75px;
-    height: 75px;
-    line-height: 75px;
-    margin: 0 10px;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 50%;
-    border: 5px solid #D8E2DC;
-    float: left;
-    transition: all 0.5s ease;
-  }
+
 
   /* Style the icons by setting its color and margin-top value to 20px 
   to align it properly */
   .wrapper ul li .fa {
     color: #D8E2DC;
-    margin-top: 20px;
+    // margin-top: 20px;
     transition: all 0.5s ease;
   }
 
@@ -115,53 +122,25 @@ footer {
     transition: all 0.5s ease;
   }
 
-
-  /* media queries */
-
-  @media screen and (max-width: 600px){
-    .wrapper {
-        width: 350px;
-    }
-    .wrapper ul li{
-        margin-top: 10px;
-    }
-    .wrapper ul li.google{
-        margin-left: 60px;
-    }
-  }
-
 // PHONE
-  @media screen and (max-width: 600px){
+  @media screen and (min-width: 750px){
     .wrapper {
       width: 100vw;
+      // display: flex;
+      // align-items: center;
+      // justify-content: center;
     }
-
     .wrapper ul li {
-      width: 8vw;
-      height: 6vh;
+      width: 75px;
+      height: 75px;
       line-height: 75px;
-      margin: 2 10px;
-      border-radius: 50%;
-      border: 3px solid #D8E2DC;
+      margin: 0 10px;
       text-align: center;
       cursor: pointer;
+      border-radius: 50%;
+      border: 5px solid #D8E2DC;
       float: left;
       transition: all 0.5s ease;
-    }
-    footer {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      background-color: #80D0C7;
-      background-image: linear-gradient(7deg, #80D0C7 26%, #c2e59c 77%, #ffffff 100%);  
-      margin-bottom: 0;
-      height: 20vh;
-      width: 100%;
-      text-align: center;
-      padding: 5px 0 2px;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 400;
     }
     .copy-right{
       display: flex; 
