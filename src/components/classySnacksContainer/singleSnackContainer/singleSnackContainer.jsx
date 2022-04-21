@@ -1,9 +1,8 @@
 import React from 'react'
 import UpdateSnack from './updateSnack/updateSnack'
 import './singleSnackContainer.scss'
-import Modal from 'react-bootstrap/Modal'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import SingleModal from './singleModal'
+import HomePage from '../../homePage/homePage'
 class SingleSnackContainer extends React.Component {
     // get snack from parent, then pass down updated snack to child
     // set snack update 
@@ -20,17 +19,10 @@ class SingleSnackContainer extends React.Component {
                 description: props.snack.description,
                 image: props.snack.image
             },
-            card: true
+            showing: false, 
         }
     }
 
-    // showModal = async () => {
-    //     this.setState({
-    //         toggle: true
-    //     })
-    //     console.log("Showmodal")
-    // }
-    // FOR MODAL
     handleClose = async () => {
         this.setState({
             card: true,
@@ -40,9 +32,9 @@ class SingleSnackContainer extends React.Component {
     handleShow = async () => {
         this.setState({
             // to show modal 
-            card: false,
+            showing: true, 
         })
-        console.log(this.state.card)
+        console.log(this.state.showing)
     }
 
     handleUpdateSnackInputChange = (e) => {
@@ -78,69 +70,48 @@ class SingleSnackContainer extends React.Component {
 
     render() {
         return (
-            <>
-            <div className="single-item-component">
-                <div class="cards">
-                    {/* set it as true to show  */}
-                    <div onClick={this.handleShow}>
-                        <div class="card" id={this.props.snack.id} onClick={() => this.props.viewSnack(this.props.snack.id)}>
-                            <div class="img">
-                                <img className="image-voyager" src={this.props.snack.image}></img>
-                            </div>
-                            <div class="card__body">
-                                <div class="card__color-picker">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <h2 className="card-title">{this.props.snack.name}</h2>
-                                <h3 >{this.props.snack.category}</h3>
-                                <li className="card-jobtitle">{this.props.snack.country}</li>
-                                <div class="card-content">
-                                    <div class="card-subtitle">ABOUT</div>
-                                    <p class="card-desc">{this.props.snack.description}</p>
-                                </div>
-                                {/* UPDATE AND DELETE BUTTONS */}
-                                <div class="card-buttons">
-                                    <button onClick={() => { this.props.deleteSnack(this.props.snack.id) }}> DELETE </button>
-                                    {/* pass down the snack, event handler, and update snack function */}
-                                    <UpdateSnack
-                                        snack={this.props.snack}
-                                        updatedSnack={this.state.updatedSnack}
-                                        handleUpdateSnackInputChange={this.handleUpdateSnackInputChange}
-                                        updateSnack={this.updateSnack}>
-                                    </UpdateSnack>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-                {
-                    this.card
+                <div className="single-item-component">
+                    <div class="cards">
+                        { 
+                        this.showing 
                         ?
-                        <>
-                            <Modal>
-                                <Modal.Header closeButton>
-                                    <Modal.Title>Add a new Snack!</Modal.Title>
-                                </Modal.Header>
-                                <Modal.Body>
+                        <SingleModal></SingleModal>
+                        :
+                            <div class="card" id={this.props.snack.id} onClick={() => this.props.viewSnack(this.props.snack.id)}>
+                                <div class="img">
+                                    <img className="image-voyager" src={this.props.snack.image}></img>
+                                </div>
+                                <div class="card__body">
+                                    <div class="card__color-picker">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
                                     <h2 className="card-title">{this.props.snack.name}</h2>
-                                    <h3>{this.props.snack.category}</h3>
-                                </Modal.Body>
-                                <Modal.Footer>
-                                    <Button variant="secondary">Close</Button>
-                                    <Button variant="primary">Save changes</Button>
-                                </Modal.Footer>
-                            </Modal>
-                            <>
-                        : 
-
-                        }
+                                    <h3 >{this.props.snack.category}</h3>
+                                    <li className="card-jobtitle">{this.props.snack.country}</li>
+                                    <div class="card-content">
+                                        <div class="card-subtitle">ABOUT</div>
+                                        <p class="card-desc">{this.props.snack.description}</p>
+                                    </div>
+                                    {/* UPDATE AND DELETE BUTTONS */}
+                                    <div class="card-buttons">
+                                        <button onClick={() => { this.props.deleteSnack(this.props.snack.id) }}> DELETE </button>
+                                        {/* pass down the snack, event handler, and update snack function */}
+                                        <UpdateSnack
+                                            snack={this.props.snack}
+                                            updatedSnack={this.state.updatedSnack}
+                                            handleUpdateSnackInputChange={this.handleUpdateSnackInputChange}
+                                            updateSnack={this.updateSnack}>
+                                        </UpdateSnack>
+                                    </div>
+                                </div>
+                            </div>
+    }
                         </div>
-                </div>
-</>
+                        </div> 
+
         )
     }
 }
