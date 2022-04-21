@@ -20,6 +20,7 @@ function App() {
             <Route path="/home" element={<HomePage />} />
             <Route path="/viewall" element={<ViewAll />} />
             <Route path="/about" element={<About />} />
+            <Route path="/snack/:id" element={<About />} />
             <Route path="/" element={<Navigate replace to="/home" />} />
           </Routes>
         </Router>

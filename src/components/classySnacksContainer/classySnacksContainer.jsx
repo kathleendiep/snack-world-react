@@ -54,7 +54,6 @@ class ClassySnacksContainer extends React.Component {
         })
     }
 
-
     createNewSnack = async (e) => {
         // value vs reference
         // react - make COPY through ...spread operater, passed by reference when they're objects and arrays
@@ -207,13 +206,11 @@ render() {
             <Carousel
 
                 className=" outer-container"
-                /*
                 swipeable={false}
                 draggable={false}
-                */
                 responsive={responsive}
                 ssr
-                showDots
+                // showDots
                 containerClass="container-with-dots"
                 itemClass="image-item"
                 deviceType={this.props.deviceType}
