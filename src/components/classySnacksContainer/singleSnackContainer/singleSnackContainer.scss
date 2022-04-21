@@ -161,8 +161,7 @@ h1 {
     align-items: center;
     background-color: grey;
 }
-.modal-header button{
-  color: #2b2c48; 
+.modal-header button:hover{
   border-bottom: 3px solid purple;
   display: flex;
   flex-direction: row;
