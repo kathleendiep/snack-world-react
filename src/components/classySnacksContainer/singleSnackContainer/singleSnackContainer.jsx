@@ -78,6 +78,7 @@ class SingleSnackContainer extends React.Component {
                         ?
                         <SingleModal></SingleModal>
                         :
+                        <div onClick={this.handleShow}>
                             <div class="card" id={this.props.snack.id} onClick={() => this.props.viewSnack(this.props.snack.id)}>
                                 <div class="img">
                                     <img className="image-voyager" src={this.props.snack.image}></img>
@@ -108,6 +109,7 @@ class SingleSnackContainer extends React.Component {
                                     </div>
                                 </div>
                             </div>
+                        </div>
     }
                         </div>
                         </div> 
