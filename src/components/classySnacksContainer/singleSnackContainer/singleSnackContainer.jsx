@@ -55,8 +55,8 @@ class SingleSnackContainer extends React.Component {
             <div className="single-item-component">
                 {/* CARD ELEMENT */}
                 <div class="cards">
-                    {/* IMAGE */}
-                    <div class="card">
+                    {/* individual card */}
+                    <div class="card" id={this.props.snack.id} onClick={ ()=> this.props.viewSnack(this.props.snack.id)}>
                         <div class="img">
                             <img className="image-voyager" src={this.props.snack.image}></img>
                         </div>

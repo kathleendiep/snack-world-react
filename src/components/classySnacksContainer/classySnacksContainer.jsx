@@ -2,7 +2,7 @@ import React from 'react'
 import SingleSnackContainer from './singleSnackContainer/singleSnackContainer'
 import NewSnack from './newSnack/newSnack'
 import './classySnacksContainer.scss'
-import { Navigate, Link, useNavigate} from 'react-router-dom'
+import { Navigate, Link, useNavigate } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -42,6 +42,7 @@ class ClassySnacksContainer extends React.Component {
         // this.handleClick = this.handleClick.bind(this);
         console.log("constructors")
     }
+
     // handle change for NEW snack - add this to the child input(newSnackComponent)
     handleNewSnackInputChange = (e) => {
         console.log(e.target.value)
@@ -53,7 +54,7 @@ class ClassySnacksContainer extends React.Component {
         })
     }
 
-  
+
     createNewSnack = async (e) => {
         // value vs reference
         // react - make COPY through ...spread operater, passed by reference when they're objects and arrays
@@ -69,13 +70,14 @@ class ClassySnacksContainer extends React.Component {
         })
         if (apiResponse.status == 201) {
             const creationResponseParsed = await apiResponse.json()
-            // console.log(creationResponseParsed)
+            console.log(creationResponseParsed)
             this.setState({
                 // use spread operator to list out snacks then return the one from database
-                snacks: [...this.state.snacks, this.state.snacks]
+                // Make sure to set the state 
+                snacks: [creationResponseParsed, ...this.state.snacks]
             })
-            // return <Navigate to='/'  />
-            useNavigate({ pathname: '/' }, { replace: true })
+            // const navigate = useNavigate();
+            // navigate('/');
         }
         // to do: ELSE
     }
@@ -106,124 +108,136 @@ class ClassySnacksContainer extends React.Component {
         const parsedDeleteResponse = await deleteResponse.json()
         console.log(parsedDeleteResponse)
     }
-    // UPDATE: PUT
-    // STORE STATE IN PARENT
-    // FORM IN CHILD
-    // SEND ID TO UPDATE 
-    // PUT THIS IN SINGLESNACKS first
-    // handleUpdateSnackInputChange = (e) => {
-    //     console.log(e.target.value)
-    //     this.setState({
-    //         updateSnack: {
-    //             ...this.state.updateSnack,
-    //             [e.target.name]: e.target.value
-    //         }
-    //     })
-    // }
 
-    // // should i do an setUpdateSnack
-    // updateSnack = async (idToUpdate) => {
-    //     console.log(this.state.updateSnack)
-    //     // get id from child and put it together
-    //     const apiResponse = await fetch(`https://snacksworld-api.herokuapp.com/api/snacks/${idToUpdate}`, {
-    //         method: "PUT",
-    //         body: JSON.stringify(this.state.updateSnack),
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         }
-    //     })
-    //     if (apiResponse.status == 200) {
-    //         const parsedResponse = await apiResponse.json()
-    //         this.setState({
-    //             // if its equal to idToUpdate, give me it, else give old response 
-    //             snacks: this.state.snacks.map(s => s.id === idToUpdate ? parsedResponse : s)
-    //         })
-    //     }
-    //     console.log(apiResponse.status)
-    // }
-    // this gets called last - when component mounts - do this
-    componentDidMount() {
-        // refer to object holding method 
-        this.getSnacks()
-        console.log("doing our api calls now that it has been Rendered")
+    viewSnack = async (id) => {
+        const viewSnackInfo = await fetch(`https://snacksworld-api.herokuapp.com/api/snacks/${id}`, {
+            method: "GET"
+        })
+        const parsedSnack = await viewSnackInfo.json();
+        console.log(parsedSnack)
+        // setting the id to snack 
+        this.setState({
+            snack: parsedSnack
+        })
     }
-    // must have render() and define render - this is what will render component
-    render() {
-        console.log("Rendering");
-        const responsive = {
-          desktop: {
+
+// UPDATE: PUT
+// STORE STATE IN PARENT
+// FORM IN CHILD
+// SEND ID TO UPDATE 
+// PUT THIS IN SINGLESNACKS first
+// handleUpdateSnackInputChange = (e) => {
+//     console.log(e.target.value)
+//     this.setState({
+//         updateSnack: {
+//             ...this.state.updateSnack,
+//             [e.target.name]: e.target.value
+//         }
+//     })
+// }
+
+// // should i do an setUpdateSnack
+// updateSnack = async (idToUpdate) => {
+//     console.log(this.state.updateSnack)
+//     // get id from child and put it together
+//     const apiResponse = await fetch(`https://snacksworld-api.herokuapp.com/api/snacks/${idToUpdate}`, {
+//         method: "PUT",
+//         body: JSON.stringify(this.state.updateSnack),
+//         headers: {
+//             "Content-Type": "application/json"
+//         }
+//     })
+//     if (apiResponse.status == 200) {
+//         const parsedResponse = await apiResponse.json()
+//         this.setState({
+//             // if its equal to idToUpdate, give me it, else give old response 
+//             snacks: this.state.snacks.map(s => s.id === idToUpdate ? parsedResponse : s)
+//         })
+//     }
+//     console.log(apiResponse.status)
+// }
+// this gets called last - when component mounts - do this
+componentDidMount() {
+    // refer to object holding method 
+    this.getSnacks()
+    console.log("doing our api calls now that it has been Rendered")
+}
+// must have render() and define render - this is what will render component
+render() {
+    console.log("Rendering");
+    const responsive = {
+        desktop: {
             breakpoint: { max: 3000, min: 1024 },
             items: 3,
             slidesToSlide: 3 // optional, default to 1.
-          },
-          tablet: {
+        },
+        tablet: {
             breakpoint: { max: 1024, min: 464 },
             items: 2,
             slidesToSlide: 2 // optional, default to 1.
-          },
-          mobile: {
+        },
+        mobile: {
             breakpoint: { max: 464, min: 0 },
             items: 1,
             slidesToSlide: 1 // optional, default to 1.
-          }
-        };
-        function HomeButton() {
-            let history = useNavigate()
-          
-            function handleClick() {
-              history.push("/home")
-            }
-          
-            return (
-              <button type="button" onClick={handleClick}>
-                Go home
-              </button>
-            )
-          }
-        return (
-            <div className ="animate__animated animate__fadeInRight animate__delay-1s">
-                <NewSnack
-                    handleNewSnackInputChange={this.handleNewSnackInputChange}
-                    createNewSnack={this.createNewSnack}
-                >
-                    <hr></hr>
-                </NewSnack>
- 
-                <Carousel 
+        }
+    };
+    function HomeButton() {
+        let history = useNavigate()
 
-        className= " outer-container"
-          /*
-          swipeable={false}
-          draggable={false}
-          */
-          responsive={responsive}
-          ssr
-          showDots
-          containerClass="container-with-dots"
-          itemClass="image-item"
-          deviceType={this.props.deviceType}
-        >
-       {this.state.snacks.map((snack) => {
-                            return <SingleSnackContainer
-                            className = {this.props.inner}
-                            key={`snack-${snack.id}`}
-                            snack={snack}
-                            deleteSnack={this.deleteSnack}
-                            updateSnack={this.updateSnack}
-                            snacks={this.state.snacks}
-                            >
-                                {JSON.stringify(this.snacks)}
-                            </SingleSnackContainer>
-                        })}
-        </Carousel>
-   
-                
-             <Button variant="primary" className="button see-more">
-                 <Link to="/viewall">See more! </Link>
-            </Button>
-            </div>
+        function handleClick() {
+            history.push("/home")
+        }
+
+        return (
+            <button type="button" onClick={handleClick}>
+                Go home
+            </button>
         )
     }
+    return (
+        <div className="animate__animated animate__fadeInRight animate__delay-1s">
+            <NewSnack
+                handleNewSnackInputChange={this.handleNewSnackInputChange}
+                createNewSnack={this.createNewSnack}
+            >
+                <hr></hr>
+            </NewSnack>
+
+            <Carousel
+
+                className=" outer-container"
+                /*
+                swipeable={false}
+                draggable={false}
+                */
+                responsive={responsive}
+                ssr
+                showDots
+                containerClass="container-with-dots"
+                itemClass="image-item"
+                deviceType={this.props.deviceType}
+            >
+                {this.state.snacks.map((snack) => {
+                    return <SingleSnackContainer
+                        className={this.props.inner}
+                        key={`snack-${snack.id}`}
+                        snack={snack}
+                        deleteSnack={this.deleteSnack}
+                        updateSnack={this.updateSnack}
+                        snacks={this.state.snacks}
+                        viewSnack={this.viewSnack}
+                    >
+                        {JSON.stringify(this.snacks)}
+                    </SingleSnackContainer>
+                })}
+            </Carousel>
+            <Button variant="primary" className="button see-more">
+                <Link to="/viewall">See more! </Link>
+            </Button>
+        </div>
+    )
+}
 }
 
 // still need to add this 

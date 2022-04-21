@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button'
 import { Redirect } from 'react-router-dom'
 
 const NewSnack = (props) => {
+    // to have modal pop up 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -65,7 +66,7 @@ const NewSnack = (props) => {
                             <Form.Label>Image:</Form.Label>
                             <Form.Control onChange={props.handleNewSnackInputChange} name="image" type="text"/>
                         </Form.Group>
-                        <Button type="submit">
+                        <Button type="submit" onClick={handleClose}>
                             Submit
                         </Button>
                     </Form>
