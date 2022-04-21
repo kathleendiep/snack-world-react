@@ -3,7 +3,8 @@ import UpdateSnack from './updateSnack/updateSnack'
 import './singleSnackContainer.scss'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import CloseButton from 'react-bootstrap/CloseButton'
+import SingleModal from './singleModal'
 
 class SingleSnackContainer extends React.Component {
     // get snack from parent, then pass down updated snack to child
@@ -21,20 +22,20 @@ class SingleSnackContainer extends React.Component {
                 description: props.snack.description,
                 image: props.snack.image
             },
-            show: false, 
+            show: false,
         }
     }
 
     handleClose = async () => {
         this.setState({
-            show: true,
+            show: false,
         })
     }
     // show modal 
     handleShow = async () => {
         this.setState({
             // to show modal 
-            show: true, 
+            show: true,
         })
         console.log(this.state.show)
     }
@@ -73,61 +74,84 @@ class SingleSnackContainer extends React.Component {
     render() {
         return (
 
-                <div className="single-item-component">
-                    <div class="cards">
-                        { 
-                        this.show
-                        ?
-                        // <SingleModal show={this.state.show} handleClose={this.handleClose}></SingleModal>
-                        <Modal show={this.state.show} onHide={this.handleClose}>
-                            <Modal.Header closeButton>
-                                <Modal.Title>Add a new Snack!</Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                                <h2 className="card-title">{this.props.snack.name}</h2>
-                                <h3>{this.props.snack.category}</h3>
-                            </Modal.Body>
-                            <Modal.Footer>
-                                <Button variant="secondary">Close</Button>
-                                <Button variant="primary">Save changes</Button>
-                            </Modal.Footer>
-                        </Modal>
-                        :
-                        <div onClick={this.handleShow}>
-                            <div class="card" id={this.props.snack.id} onClick={() => this.props.viewSnack(this.props.snack.id)}>
-                                <div class="img">
-                                    <img className="image-voyager" src={this.props.snack.image}></img>
+            <div className="single-item-component">
+                <div class="cards">
+                    <div onClick={this.handleShow}>
+                        <div class="card" id={this.props.snack.id} onClick={() => this.props.viewSnack(this.props.snack.id)}>
+                            <div class="img">
+                                <img className="image-voyager" src={this.props.snack.image}></img>
+                            </div>
+                            <div class="card__body">
+                                <div class="card__color-picker">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
                                 </div>
-                                <div class="card__body">
-                                    <div class="card__color-picker">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-                                    <h2 className="card-title">{this.props.snack.name}</h2>
-                                    <h3 >{this.props.snack.category}</h3>
-                                    <li className="card-jobtitle">{this.props.snack.country}</li>
-                                    <div class="card-content">
-                                        <div class="card-subtitle">ABOUT</div>
-                                        <p class="card-desc">{this.props.snack.description}</p>
-                                    </div>
-                                    {/* UPDATE AND DELETE BUTTONS */}
-                                    <div class="card-buttons">
-                                        <button onClick={() => { this.props.deleteSnack(this.props.snack.id) }}> DELETE </button>
-                                        {/* pass down the snack, event handler, and update snack function */}
-                                        <UpdateSnack
-                                            snack={this.props.snack}
-                                            updatedSnack={this.state.updatedSnack}
-                                            handleUpdateSnackInputChange={this.handleUpdateSnackInputChange}
-                                            updateSnack={this.updateSnack}>
-                                        </UpdateSnack>
-                                    </div>
+                                <h2 className="card-title">{this.props.snack.name}</h2>
+                                <h3 >{this.props.snack.category}</h3>
+                                <li className="card-jobtitle">{this.props.snack.country}</li>
+                                <div class="card-content">
+                                    <div class="card-subtitle">ABOUT</div>
+                                    <p class="card-desc">{this.props.snack.description}</p>
+                                </div>
+                                {/* UPDATE AND DELETE BUTTONS */}
+                                <div class="card-buttons">
+                                    <button onClick={() => { this.props.deleteSnack(this.props.snack.id) }}> DELETE </button>
+                                    {/* pass down the snack, event handler, and update snack function */}
+                                    <UpdateSnack
+                                        snack={this.props.snack}
+                                        updatedSnack={this.state.updatedSnack}
+                                        handleUpdateSnackInputChange={this.handleUpdateSnackInputChange}
+                                        updateSnack={this.updateSnack}>
+                                    </UpdateSnack>
                                 </div>
                             </div>
                         </div>
-    }
-                        </div>
-                        </div> 
+                    </div>
+                    {/* set modal here */}
+                    <Modal show={this.state.show} onHide={this.handleClose} className="special_modal">
+                        <Modal.Header className="modal-header" closeButton >
+                        
+                            <Modal.Title id="example-custom-modal-styling-title">{this.props.snack.name}</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body >
+                        <div class="img">
+                                <img className="image-voyager" src={this.props.snack.image}></img>
+                            </div>
+                            <div class="card__body">
+                                <div class="card__color-picker">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <h2 className="card-title">{this.props.snack.name}</h2>
+                                <h3 >{this.props.snack.category}</h3>
+                                <li className="card-jobtitle">{this.props.snack.country}</li>
+                                <div class="card-content">
+                                    <div class="card-subtitle">ABOUT</div>
+                                    <p class="card-desc">{this.props.snack.description}</p>
+                                </div>
+
+                            </div>
+                        </Modal.Body>
+                        <Modal.Footer>
+                                {/* UPDATE AND DELETE BUTTONS */}
+                                <div class="card-buttons">
+                                    <button onClick={() => { this.props.deleteSnack(this.props.snack.id) }}> DELETE </button>
+                                    {/* pass down the snack, event handler, and update snack function */}
+                                    <UpdateSnack
+                                        snack={this.props.snack}
+                                        updatedSnack={this.state.updatedSnack}
+                                        handleUpdateSnackInputChange={this.handleUpdateSnackInputChange}
+                                        updateSnack={this.updateSnack}>
+                                    </UpdateSnack>
+                                </div>
+                        </Modal.Footer>
+                    </Modal>
+
+                </div>
+
+            </div>
 
         )
     }

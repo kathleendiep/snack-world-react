@@ -150,6 +150,24 @@ h1 {
 }
 
 /* BUTTONS */
+
+
+
+
+.modal-header{
+  display: flex;
+  flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+}
+.modal-header button{
+  color: #2b2c48; 
+  border-bottom: 3px solid purple;
+  display: flex;
+  flex-direction: row;
+}
+
   .card-buttons {
     display: flex;
     flex-direction: row;

@@ -6,11 +6,6 @@ import Button from 'react-bootstrap/Button'
 import { Redirect } from 'react-router-dom'
 
 const SingleModal = (props) => {
-    // to have modal pop up 
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
     return (
         <Modal show={this.props.show} onHide={this.props.handleClose}>
                     <Modal.Header closeButton>
