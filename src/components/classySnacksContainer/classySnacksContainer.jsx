@@ -42,7 +42,6 @@ class ClassySnacksContainer extends React.Component {
         // this.handleClick = this.handleClick.bind(this);
         console.log("constructors")
     }
-
     // handle change for NEW snack - add this to the child input(newSnackComponent)
     handleNewSnackInputChange = (e) => {
         console.log(e.target.value)
