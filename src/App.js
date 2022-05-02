@@ -7,7 +7,6 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-// include this for bootstrap 
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import HomePage from './components/homePage/homePage';
 import ViewAll from './components/viewAll/viewAll';

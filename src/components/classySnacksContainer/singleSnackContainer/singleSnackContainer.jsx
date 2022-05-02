@@ -111,7 +111,6 @@ class SingleSnackContainer extends React.Component {
                     {/* set modal here */}
                     <Modal show={this.state.show} onHide={this.handleClose} className="special_modal">
                         <Modal.Header className="modal-header" closeButton >
-                        
                             <Modal.Title id="example-custom-modal-styling-title">{this.props.snack.name}</Modal.Title>
                         </Modal.Header>
                         <Modal.Body >
@@ -131,7 +130,6 @@ class SingleSnackContainer extends React.Component {
                                     <div class="card-subtitle">ABOUT</div>
                                     <p class="card-desc">{this.props.snack.description}</p>
                                 </div>
-
                             </div>
                         </Modal.Body>
                         <Modal.Footer>

@@ -25,21 +25,8 @@ class ClassySnacksContainer extends React.Component {
                 country: "",
                 description: "",
                 image: ""
-                // reminder: do not include id for forms
             }
-            // // should change update in state to now be that one 
-            // updateSnack: {
-            //     name: "",
-            //     category: "",
-            //     city: "",
-            //     country: "",
-            //     description: "",
-            //     image:"" 
-            //     // make sure to put ID?
-            // }
         }
-        // // event handler - component is "this"
-        // this.handleClick = this.handleClick.bind(this);
         console.log("constructors")
     }
     // handle change for NEW snack - add this to the child input(newSnackComponent)
@@ -117,43 +104,6 @@ class ClassySnacksContainer extends React.Component {
             snack: parsedSnack
         })
     }
-
-// UPDATE: PUT
-// STORE STATE IN PARENT
-// FORM IN CHILD
-// SEND ID TO UPDATE 
-// PUT THIS IN SINGLESNACKS first
-// handleUpdateSnackInputChange = (e) => {
-//     console.log(e.target.value)
-//     this.setState({
-//         updateSnack: {
-//             ...this.state.updateSnack,
-//             [e.target.name]: e.target.value
-//         }
-//     })
-// }
-
-// // should i do an setUpdateSnack
-// updateSnack = async (idToUpdate) => {
-//     console.log(this.state.updateSnack)
-//     // get id from child and put it together
-//     const apiResponse = await fetch(`https://snacksworld-api.herokuapp.com/api/snacks/${idToUpdate}`, {
-//         method: "PUT",
-//         body: JSON.stringify(this.state.updateSnack),
-//         headers: {
-//             "Content-Type": "application/json"
-//         }
-//     })
-//     if (apiResponse.status == 200) {
-//         const parsedResponse = await apiResponse.json()
-//         this.setState({
-//             // if its equal to idToUpdate, give me it, else give old response 
-//             snacks: this.state.snacks.map(s => s.id === idToUpdate ? parsedResponse : s)
-//         })
-//     }
-//     console.log(apiResponse.status)
-// }
-// this gets called last - when component mounts - do this
 componentDidMount() {
     // refer to object holding method 
     this.getSnacks()
