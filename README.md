@@ -6,9 +6,11 @@ A place to share different tastes of the world!
 [check out live app](https://snack-world.herokuapp.com/home)
 
 
-## TECHNOLOGIES USED
-- **React - frontend** 
-- **Django - backend** 
+## Tech Stack
+- **React**  - frontend  
+- **Django**  - backend
+## Preview  
+![alt tag](https://user-images.githubusercontent.com/53194460/167747044-009b958f-54fe-4777-a437-9509a5bff39c.png)
 
 ## SCHEDULE
 Monday - connected backend to heroku
@@ -33,4 +35,9 @@ SNACKS
 
 
 
+
+## Let's connect!:
+[ my portfolio ](www.kathleendiep.com)
+
+**LinkedIn:** https://www.linkedin.com/in/kathleen-diep/ 
 
